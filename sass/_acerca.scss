@@ -175,9 +175,11 @@
 }
 
 .member-badge {
-    position: absolute;
-    top: $spacing-md;
-    right: $spacing-md;
+    /* Place badge below the image and align to the right within the member info block */
+    position: static;
+    display: block;
+    width: max-content;
+    margin: $spacing-sm $spacing-md 0 auto;
     background: $primary-yellow;
     color: $dark-bg;
     padding: 8px 20px;
