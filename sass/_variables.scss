@@ -1,0 +1,71 @@
+// ========== COLORES ==========
+$primary-yellow: #FDB913;
+$yellow-hover: #ffb800;
+
+$dark-bg: #0d1117;
+$dark-blue: #1a2332;
+$medium-blue: #2d3e50;
+$light-blue: #3d5a80;
+$hover-blue: #4a6fa5;
+
+$text-white: #ffffff;
+$text-gray: #b8c5d6;
+
+// ========== TIPOGRAFÍA ==========
+$font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$font-size-base: 16px;
+$font-size-small: 14px;
+$font-size-large: 18px;
+
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// ========== ESPACIADO ==========
+$spacing-xs: 8px;
+$spacing-sm: 15px;
+$spacing-md: 20px;
+$spacing-lg: 30px;
+$spacing-xl: 40px;
+$spacing-2xl: 60px;
+$spacing-3xl: 80px;
+$spacing-4xl: 100px;
+
+// ========== DIMENSIONES ==========
+$max-width-container: 1200px;
+$border-radius-small: 5px;
+$border-radius-medium: 10px;
+$border-radius-large: 15px;
+$border-radius-pill: 20px;
+
+// ========== TRANSICIONES ==========
+$transition-fast: 0.2s;
+$transition-normal: 0.3s;
+$transition-slow: 0.4s;
+$transition-very-slow: 0.6s;
+
+$transition-ease: ease;
+$transition-ease-out: ease-out;
+$transition-ease-in-out: ease-in-out;
+
+// ========== SOMBRAS ==========
+$shadow-small: 0 2px 10px rgba(0, 0, 0, 0.1);
+$shadow-medium: 0 5px 20px rgba(0, 0, 0, 0.2);
+$shadow-large: 0 10px 30px rgba(0, 0, 0, 0.3);
+$shadow-yellow: 0 0 30px rgba(253, 185, 19, 0.3);
+$shadow-yellow-strong: 0 0 30px rgba(253, 185, 19, 0.6);
+
+// ========== BREAKPOINTS ==========
+$breakpoint-xs: 480px;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-2xl: 1400px;
+
+// ========== Z-INDEX ==========
+$z-index-dropdown: 100;
+$z-index-sticky: 500;
+$z-index-navbar: 1000;
+$z-index-modal: 2000;
+$z-index-tooltip: 3000;

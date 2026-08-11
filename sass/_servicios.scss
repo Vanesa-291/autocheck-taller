@@ -1,0 +1,371 @@
+// ========== SERVICIOS PAGE ==========
+
+// Services Main Section
+.services-main {
+    @include section-padding;
+    background: $dark-bg;
+}
+
+.page-header {
+    @include section-padding;
+    background: linear-gradient(rgba(13, 17, 23, 0.85), rgba(13, 17, 23, 0.85)), 
+                url('../images/imagen-04.jpg') center/cover no-repeat;
+    text-align: center;
+    padding-top: 120px;
+    min-height: 350px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacing-lg;
+    margin-bottom: $spacing-2xl;
+    
+    @include respond-to(md) {
+        grid-template-columns: 1fr;
+    }
+}
+
+// Services Detailed
+.services-detailed {
+    @include section-padding;
+    background: $dark-blue;
+    
+    h3 {
+        font-size: clamp(32px, 4vw, 40px);
+        text-align: center;
+        margin-bottom: $spacing-sm;
+    }
+    
+    > p {
+        text-align: center;
+        color: $text-gray;
+        max-width: 800px;
+        margin: 0 auto $spacing-xl;
+    }
+}
+
+.services-detailed-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: $spacing-lg;
+    
+    @include respond-to(md) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.service-detailed-card {
+    background: $medium-blue;
+    padding: $spacing-xl;
+    border-radius: $border-radius-medium;
+    @include transition(all, $transition-slow);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    
+    // Overlay oscuro para leer texto sobre imagen
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(13, 17, 23, 0.70);
+        z-index: 1;
+        @include transition(all, $transition-slow);
+    }
+    
+    // Todo el contenido arriba del overlay
+    > * {
+        position: relative;
+        z-index: 2;
+    }
+    
+    &:hover {
+        border-color: $primary-yellow;
+        transform: translateY(-8px);
+        box-shadow: $shadow-yellow;
+        
+        &::before {
+            background: rgba(13, 17, 23, 0.60);
+        }
+        
+        .service-detailed-icon {
+            @include icon-hover;
+        }
+    }
+    
+    h4 {
+        font-size: 22px;
+        margin-bottom: $spacing-sm;
+        color: $text-white;
+    }
+    
+    > p {
+        color: $text-gray;
+        margin-bottom: $spacing-md;
+        font-size: $font-size-small;
+        line-height: 1.6;
+    }
+    
+    ul {
+        @include reset-list;
+        
+        li {
+            padding: 8px 0 8px 25px;
+            color: $text-gray;
+            position: relative;
+            font-size: $font-size-small;
+            
+            &::before {
+                content: '✓';
+                position: absolute;
+                left: 0;
+                color: $primary-yellow;
+                font-weight: $font-weight-bold;
+            }
+        }
+    }
+}
+
+.service-detailed-icon {
+    margin-bottom: $spacing-md;
+    @include transition(all, $transition-slow);
+}
+
+// Process Section
+.process-section {
+    @include section-padding;
+    background: $dark-bg;
+}
+
+.process-title {
+    font-size: clamp(32px, 4vw, 40px);
+    text-align: center;
+    margin-bottom: $spacing-sm;
+}
+
+.process-subtitle {
+    text-align: center;
+    color: $text-gray;
+    max-width: 700px;
+    margin: 0 auto $spacing-2xl;
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: $spacing-xl;
+    
+    @include respond-to(md) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.process-step {
+    position: relative;
+    background: $medium-blue;
+    padding: $spacing-xl $spacing-lg;
+    border-radius: $border-radius-medium;
+    text-align: center;
+    @include transition(all, $transition-slow);
+    border: 2px solid transparent;
+    
+    &:hover {
+        background: $light-blue;
+        transform: translateY(-10px);
+        border-color: $primary-yellow;
+        box-shadow: $shadow-yellow;
+        
+        .step-icon {
+            @include icon-hover;
+        }
+    }
+    
+    h4 {
+        font-size: 22px;
+        margin-bottom: $spacing-sm;
+    }
+    
+    p {
+        color: $text-gray;
+        font-size: $font-size-small;
+    }
+}
+
+.step-number {
+    position: absolute;
+    top: -20px;
+    left: $spacing-lg;
+    background: $primary-yellow;
+    color: $dark-bg;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    @include flex-center;
+    font-size: 20px;
+    font-weight: $font-weight-bold;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.step-icon {
+    margin: $spacing-md 0;
+    @include transition(all, $transition-slow);
+}
+
+// Gallery Section
+.gallery-section {
+    @include section-padding;
+    background: $dark-blue;
+    
+    h3 {
+        font-size: clamp(32px, 4vw, 36px);
+        text-align: center;
+        margin-bottom: $spacing-sm;
+    }
+    
+    > p {
+        text-align: center;
+        color: $text-gray;
+        max-width: 700px;
+        margin: 0 auto $spacing-2xl;
+    }
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: $spacing-lg;
+    
+    @include respond-to(md) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.gallery-item {
+    position: relative;
+    background: $medium-blue;
+    border-radius: $border-radius-medium;
+    overflow: hidden;
+    @include transition(all, $transition-slow);
+    cursor: pointer;
+    
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: $shadow-yellow;
+        
+        .gallery-image {
+            filter: brightness(1.2);
+            box-shadow: inset 0 0 50px rgba(253, 185, 19, 0.2);
+        }
+    }
+}
+
+.gallery-badge {
+    position: absolute;
+    top: $spacing-md;
+    left: $spacing-md;
+    background: $primary-yellow;
+    color: $dark-bg;
+    padding: 8px 20px;
+    border-radius: $border-radius-pill;
+    font-weight: $font-weight-bold;
+    z-index: 10;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(135deg, $medium-blue 0%, $light-blue 100%);
+    @include transition(all, $transition-slow);
+}
+
+.gallery-info {
+    padding: $spacing-lg;
+    
+    h4 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    p {
+        color: $text-gray;
+        font-size: $font-size-small;
+    }
+}
+
+.gallery-description {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+// ========================================
+// ✅ PROBLEMA 5 SOLUCIONADO: FONDOS DE IMAGEN EN LAS 6 CARDS
+// ========================================
+
+// Fondos específicos para cada servicio
+.service-aceite {
+    background: linear-gradient(rgba(30, 39, 53, 0.5), rgba(30, 39, 53, 0.7)),
+                url('../images/servicio-aceite01.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+    
+    @include respond-to(md) {
+        background-attachment: scroll;
+    }
+}
+
+.service-frenos {
+    background: linear-gradient(rgba(30, 39, 53, 0.5), rgba(30, 39, 53, 0.7)),
+                url('../images/servicios-frenos05.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+    
+    @include respond-to(md) {
+        background-attachment: scroll;
+    }
+}
+
+.service-motor {
+    background: linear-gradient(rgba(30, 39, 53, 0.5), rgba(30, 39, 53, 0.7)),
+                url('../images/servicio-motor03.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+    
+    @include respond-to(md) {
+        background-attachment: scroll;
+    }
+}
+
+.service-bateria {
+    background: linear-gradient(rgba(30, 39, 53, 0.5), rgba(30, 39, 53, 0.7)),
+                url('../images/servicio-bateria02.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+    
+    @include respond-to(md) {
+        background-attachment: scroll;
+    }
+}
+
+.service-neumaticos {
+    background: linear-gradient(rgba(30, 39, 53, 0.5), rgba(30, 39, 53, 0.7)),
+                url('../images/servicio-neumaticos04.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+    
+    @include respond-to(md) {
+        background-attachment: scroll;
+    }
+}
+
+.service-transmision {
+    background: linear-gradient(rgba(30, 39, 53, 0.5), rgba(30, 39, 53, 0.7)),
+                url('../images/servicio-transmicion06.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+    
+    @include respond-to(md) {
+        background-attachment: scroll;
+    }
+}

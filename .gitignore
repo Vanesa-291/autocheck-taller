@@ -1,0 +1,30 @@
+# Dependencias
+node_modules/
+
+# Compiled CSS / Build output
+css/main.css
+css/*.css.map
+
+# Environment files
+.env
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de editores
+.vscode/
+.idea/
+*.swp
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+*.tmp
+*.temp
+
+# Ignore Downloads accidentally included
+Downloads/

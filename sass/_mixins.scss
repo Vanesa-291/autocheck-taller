@@ -1,0 +1,196 @@
+// ========== MIXINS ==========
+
+@use 'sass:color';
+
+// Responsive Breakpoints
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == xs {
+        @media (max-width: $breakpoint-xs) { @content; }
+    } @else if $breakpoint == sm {
+        @media (max-width: $breakpoint-sm) { @content; }
+    } @else if $breakpoint == md {
+        @media (max-width: $breakpoint-md) { @content; }
+    } @else if $breakpoint == lg {
+        @media (max-width: $breakpoint-lg) { @content; }
+    } @else if $breakpoint == xl {
+        @media (max-width: $breakpoint-xl) { @content; }
+    }
+}
+
+// Flexbox Center
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// Flexbox Between
+@mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+// Transición genérica
+@mixin transition($property: all, $duration: $transition-normal, $timing: $transition-ease) {
+    transition: $property $duration $timing;
+}
+
+// Gradient Background
+@mixin gradient-bg($start, $end, $deg: 135deg) {
+    background: linear-gradient($deg, $start 0%, $end 100%);
+}
+
+// Card Hover Effect
+@mixin fondo-tarjeta($url) {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+              url($url) no-repeat center center;
+  background-size: cover;
+}
+.card-aceite {
+  @include fondo-tarjeta('../images/servicio-aceite.jpg');
+}
+@mixin card-hover {
+    @include transition(all, $transition-slow, $transition-ease-in-out);
+    
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: $shadow-yellow;
+        border-color: $primary-yellow;
+    }
+}
+
+// Icon Hover Effect
+@mixin icon-hover {
+    @include transition(all, $transition-slow);
+    
+    &:hover {
+        filter: drop-shadow(0 0 15px rgba(253, 185, 19, 0.8));
+        transform: scale(1.1);
+    }
+}
+
+// Image Brightness on Hover
+@mixin image-hover {
+    @include transition(all, $transition-slow);
+    
+    &:hover {
+        filter: brightness(1.15);
+        box-shadow: $shadow-yellow-strong, inset 0 0 50px rgba(253, 185, 19, 0.2);
+    }
+}
+
+// Section Padding
+@mixin section-padding {
+    padding: $spacing-4xl $spacing-md;
+    
+    @include respond-to(md) {
+        padding: $spacing-3xl $spacing-md;
+    }
+}
+
+// Container
+@mixin container {
+    max-width: $max-width-container;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+}
+
+// Button Style
+@mixin button-primary {
+    background: $primary-yellow;
+    color: $dark-bg;
+    padding: $spacing-sm $spacing-xl;
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+    border: none;
+    border-radius: $border-radius-small;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    @include transition(all);
+    
+    &:hover {
+        background: color.adjust($primary-yellow, $lightness: -8%);
+        color: $dark-bg;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(253, 185, 19, 0.5);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+
+// Text Gradient
+@mixin text-gradient {
+    background: linear-gradient(90deg, $primary-yellow 0%, $yellow-hover 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+// Truncate Text
+@mixin truncate($lines: 1) {
+    @if $lines == 1 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    } @else {
+        display: -webkit-box;
+        -webkit-line-clamp: $lines;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}
+
+// Reset List
+@mixin reset-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+// Overlay
+@mixin overlay($color: rgba(13, 17, 23, 0.7)) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $color;
+}
+
+// Aspect Ratio
+@mixin aspect-ratio($width, $height) {
+    position: relative;
+    
+    &::before {
+        content: '';
+        display: block;
+        padding-top: ($height / $width) * 100%;
+    }
+}
+
+// Position Absolute Center
+@mixin abs-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// Visually Hidden (for screen readers)
+@mixin sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}

@@ -1,0 +1,188 @@
+// ========== ARCHIVO PRINCIPAL SASS ==========
+// Este archivo importa todos los módulos parciales
+
+// 1. Configuración
+@import 'variables';
+@import 'mixins';
+@import 'reset';
+
+// 2. Layout
+@import 'navbar';
+@import 'footer';
+
+// 3. Páginas
+@import 'home';
+@import 'servicios';
+@import 'acerca';
+@import 'contacto';
+
+// ========== COMPONENTES GLOBALES ==========
+
+// Page Header
+.page-header {
+    min-height: 40vh;
+    @include flex-center;
+    @include gradient-bg($dark-bg, $dark-blue);
+    text-align: center;
+    padding: 150px $spacing-md $spacing-4xl;
+    
+    h1 {
+        font-size: clamp(32px, 5vw, 48px);
+        margin-bottom: $spacing-md;
+    }
+    
+    p {
+        color: $text-gray;
+        font-size: $font-size-large;
+    }
+}
+
+// Stats Section
+.stats-section {
+    padding: $spacing-3xl $spacing-md;
+    background: $dark-blue;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacing-lg;
+}
+
+.stat-card {
+    @include gradient-bg($medium-blue, $dark-blue);
+    padding: $spacing-xl $spacing-lg;
+    border-radius: $border-radius-medium;
+    text-align: center;
+    border: 1px solid rgba(253, 185, 19, 0.1);
+    @include card-hover;
+    
+    &:hover .stat-icon {
+        @include icon-hover;
+    }
+}
+
+.stat-icon {
+    margin-bottom: $spacing-md;
+    filter: drop-shadow(0 0 10px rgba(253, 185, 19, 0.5));
+    @include transition(all, $transition-slow);
+}
+
+.stat-number {
+    font-size: 42px;
+    font-weight: $font-weight-bold;
+    color: $primary-yellow;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    font-size: $font-size-base;
+    color: $text-gray;
+}
+
+// CTA Section
+.cta-section {
+    @include section-padding;
+    background: $dark-bg;
+    text-align: center;
+    
+    h2 {
+        font-size: clamp(32px, 4vw, 42px);
+        margin-bottom: $spacing-md;
+    }
+    
+    p {
+        color: $text-gray;
+        max-width: 800px;
+        margin: 0 auto $spacing-xl;
+        font-size: $font-size-large;
+    }
+}
+
+// Buttons
+.cta-button {
+    @include button-primary;
+}
+
+.cta-button-large {
+    @include button-primary;
+    padding: 18px 50px;
+    font-size: $font-size-large;
+}
+
+// Section Titles
+.section-title {
+    font-size: clamp(32px, 4vw, 48px);
+    text-align: center;
+    margin-bottom: $spacing-md;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: $text-gray;
+    max-width: 800px;
+    margin: 0 auto $spacing-2xl;
+    font-size: $font-size-large;
+}
+
+// Animations
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-text {
+    animation: slideInLeft 1s $transition-ease-out forwards;
+    
+    &.delay-1 {
+        animation-delay: 0.3s;
+        opacity: 0;
+    }
+    
+    &.delay-2 {
+        animation-delay: 0.6s;
+        opacity: 0;
+    }
+    
+    &.delay-3 {
+        animation-delay: 0.9s;
+        opacity: 0;
+    }
+}
+
+// Responsive utilities
+@include respond-to(md) {
+    .section-title {
+        font-size: 32px;
+    }
+    
+    .section-subtitle {
+        font-size: $font-size-base; 
+    }
+}

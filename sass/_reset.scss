@@ -1,0 +1,113 @@
+// ========== RESET Y BASE ==========
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: $font-main;
+    background: $dark-bg;
+    color: $text-white;
+    line-height: 1.6;
+    overflow-x: hidden;
+    font-size: $font-size-base;
+}
+
+// Accesibilidad - Screen Reader Only
+.sr-only {
+    @include sr-only;
+}
+
+// Container genérico
+.container {
+    @include container;
+}
+
+// Highlight text
+.highlight {
+    color: $primary-yellow;
+}
+
+// Links
+a {
+    color: inherit;
+    text-decoration: none;
+    @include transition(color);
+    
+    &:hover {
+        color: $primary-yellow;
+    }
+}
+
+// Images
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+// Buttons reset
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: inherit;
+}
+
+// Inputs reset
+input,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+
+// Selection
+::selection {
+    background: $primary-yellow;
+    color: $dark-bg;
+}
+
+::-moz-selection {
+    background: $primary-yellow;
+    color: $dark-bg;
+}
+
+// Scrollbar
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: $dark-bg;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $primary-yellow;
+    border-radius: $border-radius-small;
+    
+    &:hover {
+        background: $yellow-hover;
+    }
+}
+
+// Focus visible para accesibilidad
+*:focus-visible {
+    outline: 2px solid $primary-yellow;
+    outline-offset: 2px;
+}

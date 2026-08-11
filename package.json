@@ -1,0 +1,40 @@
+{
+  "name": "autocheck-taller",
+  "version": "1.0.0",
+  "description": "Sitio web profesional para taller automotriz AutoCheck",
+  "main": "index.html",
+  "scripts": {
+    "sass": "sass --no-source-map --silence-deprecation=import --silence-deprecation=color-functions sass/main.scss css/main.css",
+    "sass:watch": "sass --watch --no-source-map --silence-deprecation=import --silence-deprecation=color-functions sass/main.scss:css/main.css",
+    "sass:build": "sass --no-source-map --style compressed --silence-deprecation=import --silence-deprecation=color-functions sass/main.scss css/main.css",
+    "dev": "npm run sass:watch",
+    "build": "npm run sass:build",
+    "serve": "npx http-server -p 8000",
+    "start": "npm run sass:watch & npm run serve"
+  },
+  "keywords": [
+    "taller",
+    "automotriz",
+    "autocheck",
+    "sass",
+    "responsive",
+    "seo"
+  ],
+  "author": "AutoCheck Taller Profesional",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.99.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tu-usuario/autocheck.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tu-usuario/autocheck/issues"
+  },
+  "homepage": "https://tu-usuario.github.io/autocheck/",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+}

@@ -1,0 +1,395 @@
+// ========== ACERCA DE PAGE ==========
+
+// History Section
+.history-section-page {
+    @include section-padding;
+    background: $dark-bg;
+    
+    h2 {
+        font-size: clamp(32px, 4vw, 36px);
+        text-align: center;
+        margin-bottom: $spacing-2xl;
+    }
+}
+
+.history-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-2xl;
+    align-items: center;
+    
+    @include respond-to(md) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.history-text {
+    p {
+        color: $text-gray;
+        margin-bottom: $spacing-md;
+        line-height: 1.8;
+    }
+}
+
+.history-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-lg;
+    margin-top: $spacing-lg;
+}
+
+.history-stat {
+    background: $medium-blue;
+    padding: $spacing-lg;
+    border-radius: $border-radius-medium;
+    text-align: center;
+    @include transition(all, $transition-slow);
+    
+    &:hover {
+        background: $light-blue;
+        transform: translateY(-5px);
+        box-shadow: $shadow-yellow;
+    }
+    
+    h4 {
+        font-size: 32px;
+        color: $primary-yellow;
+        margin-bottom: 5px;
+        font-weight: $font-weight-bold;
+    }
+    
+    p {
+        color: $text-gray;
+        margin: 0;
+    }
+}
+
+.history-images {
+    display: block;
+    width: 100%;
+}
+
+.history-image-team {
+    position: relative;
+    height: 400px;
+    background: linear-gradient(135deg, $medium-blue 0%, $light-blue 100%);
+    border-radius: $border-radius-medium;
+    overflow: hidden;
+    cursor: pointer;
+    @include transition(all, $transition-slow);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: $shadow-yellow-strong;
+    }
+    
+    @include respond-to(md) {
+        height: 300px;
+    }
+}
+
+.history-image-before,
+.history-image-after {
+    position: relative;
+    height: 250px;
+    background: linear-gradient(135deg, $medium-blue 0%, $light-blue 100%);
+    border-radius: $border-radius-medium;
+    overflow: hidden;
+    cursor: pointer;
+    @include transition(all, $transition-slow);
+    
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: $shadow-yellow-strong;
+    }
+}
+
+.image-label {
+    display: none; /* Ocultar etiquetas Before/After */
+}
+
+// Team Section
+.team-section {
+    @include section-padding;
+    background: $dark-blue;
+    
+    h3 {
+        font-size: clamp(32px, 4vw, 36px);
+        text-align: center;
+        margin-bottom: $spacing-sm;
+    }
+    
+    > p {
+        text-align: center;
+        color: $text-gray;
+        max-width: 700px;
+        margin: 0 auto $spacing-xl;
+    }
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacing-lg;
+    
+    @include respond-to(md) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.team-member {
+    background: $medium-blue;
+    border-radius: $border-radius-medium;
+    overflow: hidden;
+    text-align: center;
+    @include transition(all, $transition-slow);
+    border: 2px solid transparent;
+    position: relative;
+    
+    &:hover {
+        background: $light-blue;
+        border-color: $primary-yellow;
+        transform: translateY(-10px);
+        box-shadow: $shadow-yellow;
+        
+        .member-image {
+            filter: brightness(1.1);
+            box-shadow: inset 0 0 50px rgba(253, 185, 19, 0.2);
+        }
+    }
+    
+    h4 {
+        font-size: 22px;
+        margin: $spacing-md 0 5px;
+    }
+}
+
+.member-image {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    @include transition(all, $transition-slow);
+    object-position: center;
+     @include transition(all, $transition-slow);
+}
+
+.member-badge {
+    position: absolute;
+    top: $spacing-md;
+    right: $spacing-md;
+    background: $primary-yellow;
+    color: $dark-bg;
+    padding: 8px 20px;
+    border-radius: $border-radius-pill;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-small;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.member-role {
+    color: $primary-yellow;
+    font-size: $font-size-small;
+    margin-bottom: 10px;
+}
+
+.member-desc {
+    color: $text-gray;
+    font-size: $font-size-small;
+    padding: 0 $spacing-md $spacing-md;
+}
+
+// Values Section
+.values-section {
+    @include section-padding;
+    background: $dark-bg;
+    
+    h3 {
+        font-size: clamp(32px, 4vw, 36px);
+        text-align: center;
+        margin-bottom: $spacing-sm;
+    }
+    
+    > p {
+        text-align: center;
+        color: $text-gray;
+        max-width: 700px;
+        margin: 0 auto $spacing-2xl;
+    }
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacing-lg;
+    
+    @include respond-to(md) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.value-card {
+    background: $medium-blue;
+    padding: $spacing-xl;
+    border-radius: $border-radius-medium;
+    text-align: center;
+    @include transition(all, $transition-slow);
+    border: 2px solid transparent;
+    
+    &:hover {
+        background: $light-blue;
+        border-color: $primary-yellow;
+        transform: translateY(-10px);
+        box-shadow: $shadow-yellow;
+        
+        .value-icon {
+            @include icon-hover;
+        }
+    }
+    
+    h4 {
+        font-size: 22px;
+        margin-bottom: $spacing-sm;
+    }
+    
+    p {
+        color: $text-gray;
+        font-size: $font-size-small;
+        line-height: 1.6;
+    }
+}
+
+.value-icon {
+    margin-bottom: $spacing-md;
+    @include transition(all, $transition-slow);
+}
+
+ /* SOLUCIÓN: Íconos del mismo tamaño */
+    svg, i {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    circle, path {
+        stroke-width: 2.5px;
+    }
+
+
+// Why Choose Section
+.why-choose-section {
+    @include section-padding;
+    background: $dark-blue;
+    
+    h2 {
+        font-size: clamp(32px, 4vw, 42px);
+        text-align: center;
+        margin-bottom: $spacing-md;
+    }
+    
+    > .container > p {
+        text-align: center;
+        color: $text-gray;
+        max-width: 800px;
+        margin: 0 auto $spacing-2xl;
+        font-size: $font-size-large;
+    }
+}
+
+.why-choose-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacing-lg;
+    
+    @include respond-to(md) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.why-item {
+    background: $medium-blue;
+    padding: $spacing-lg;
+    border-radius: $border-radius-medium;
+    text-align: center;
+    @include transition(all, $transition-slow);
+    border: 2px solid transparent;
+    
+    &:hover {
+        background: $light-blue;
+        border-color: $primary-yellow;
+        transform: translateY(-8px);
+        box-shadow: $shadow-yellow;
+        
+.why-icon {
+    margin-bottom: $spacing-md;
+    @include transition(all, $transition-slow);
+    
+    /* Íconos del mismo tamaño */
+    svg, i {
+        width: 60px;
+        height: 60px;
+    }
+    }
+    
+    h4 {
+        font-size: $font-size-base;
+        color: $text-white;
+    }
+}
+
+.why-icon {
+    margin-bottom: $spacing-md;
+    @include transition(all, $transition-slow);
+}
+
+.why-image-container {
+    position: relative;
+    height: 400px;
+    border-radius: $border-radius-medium;
+    overflow: hidden;
+    margin-top: $spacing-2xl;
+    
+    @include respond-to(md) {
+        height: 300px;
+    }
+}
+
+
+/* Imagen de fondo para page-header */
+.page-header {
+    background: linear-gradient(rgba(13, 17, 23, 0.85), rgba(13, 17, 23, 0.85)), 
+                url('../images/heroPaginaprincipal.jpg') center/cover no-repeat;
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 20px 60px;
+}
+
+.why-image {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, $medium-blue 0%, $light-blue 100%);
+    @include transition(transform, $transition-slow);
+    
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.why-badge {
+    position: absolute;
+    bottom: $spacing-lg;
+    right: $spacing-lg;
+    background: $primary-yellow;
+    color: $dark-bg;
+    padding: $spacing-sm $spacing-lg;
+    border-radius: $border-radius-small;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-large;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+}}

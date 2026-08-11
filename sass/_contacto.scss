@@ -1,0 +1,508 @@
+// ========== CONTACTO PAGE ==========
+
+@use 'sass:color';
+
+// Contact Quick Section
+.contact-quick-section {
+    @include section-padding;
+    background: $dark-bg;
+}
+
+.contact-quick-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: $spacing-lg;
+    
+    @include respond-to(md) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.contact-quick-card {
+    background: $medium-blue;
+    padding: $spacing-xl $spacing-lg;
+    border-radius: $border-radius-medium;
+    text-align: center;
+    @include transition(all, $transition-slow);
+    border: 2px solid transparent;
+    
+    &.active,
+    &:hover {
+        background: $light-blue;
+        border-color: $primary-yellow;
+        transform: translateY(-10px);
+        box-shadow: $shadow-yellow;
+        
+        .contact-icon {
+            @include icon-hover;
+        }
+    }
+    
+    h3 {
+        font-size: 20px;
+        margin-bottom: $spacing-sm;
+    }
+    
+    p {
+        color: $text-gray;
+        font-size: $font-size-small;
+        margin-bottom: 5px;
+        
+        a {
+            color: inherit;
+            @include transition(color);
+            
+            &:hover {
+                color: $primary-yellow;
+            }
+        }
+    }
+}
+
+.contact-icon {
+    font-size: 50px;
+    color: $primary-yellow;
+    margin-bottom: $spacing-md;
+    @include transition(all, $transition-slow);
+}
+
+.contact-highlight {
+    color: $primary-yellow;
+    font-size: 20px;
+    font-weight: $font-weight-bold;
+    margin-bottom: 10px;
+}
+
+.contact-detail {
+    color: $text-gray;
+    font-size: $font-size-small;
+}
+
+// Contact Form Section
+.contact-form-section {
+    @include section-padding;
+    background: $dark-blue;
+}
+
+.contact-form-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: $spacing-2xl;
+    max-width: 1000px;
+    margin: 0 auto;
+    
+    @include respond-to(md) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.contact-form-info {
+    h2 {
+        font-size: clamp(28px, 4vw, 36px);
+        margin-bottom: $spacing-md;
+    }
+    
+    > p {
+        color: $text-gray;
+        margin-bottom: $spacing-lg;
+        line-height: 1.8;
+    }
+}
+
+.contact-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+}
+
+// ✅ PROBLEMA 4 SOLUCIONADO: Alinear texto con círculos amarillos
+.benefit-item {
+    display: flex;
+    align-items: flex-start;  /* ✅ CAMBIO: flex-start para mejor alineación */
+    gap: 12px;  /* ✅ AUMENTADO: más espacio entre ícono y texto */
+    padding: 4px 0;  /* ✅ NUEVO: padding para mejor espaciado */
+    
+    i {
+        color: $primary-yellow;
+        font-size: 20px;
+        flex-shrink: 0;  /* ✅ MANTIENE: evita que el ícono se encoja */
+        margin-top: 2px;  /* ✅ NUEVO: ajuste fino de alineación */
+        width: 20px;  /* ✅ NUEVO: ancho fijo para consistencia */
+        text-align: center;
+    }
+    
+    span {
+        color: $text-gray;
+        font-size: $font-size-small;
+        line-height: 1.6;  /* ✅ NUEVO: mejor espaciado de líneas */
+        flex: 1;
+    }
+}
+
+// Contact Form
+.contact-form {
+    background: $medium-blue;
+    padding: $spacing-xl;
+    border-radius: $border-radius-medium;
+    border: 2px solid rgba(253, 185, 19, 0.1);
+    
+    @include respond-to(md) {
+        padding: $spacing-lg;
+    }
+}
+
+.form-group {
+    margin-bottom: $spacing-md;
+    
+    &.full-width {
+        grid-column: 1 / -1;
+    }
+    
+    label {
+        display: block;
+        color: $text-white;
+        margin-bottom: 8px;
+        font-size: $font-size-small;
+        font-weight: $font-weight-medium;
+    }
+    
+    input,
+    textarea,
+    select {
+        width: 100%;
+        padding: 12px $spacing-sm;
+        background: $dark-blue;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: $border-radius-small;
+        color: $text-white;
+        font-size: $font-size-base;
+        @include transition(all, $transition-normal);
+        
+        &:focus {
+            outline: none;
+            border-color: $primary-yellow;
+            background: color.adjust($dark-blue, $lightness: 5%);
+        }
+        
+        &::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+    }
+    
+    textarea {
+        resize: vertical;
+        min-height: 120px;
+        font-family: inherit;
+    }
+}
+
+// Location Section
+.location-section {
+    @include section-padding;
+    background: $dark-bg;
+}
+
+.location-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-2xl;
+    align-items: center;
+    
+    @include respond-to(md) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.location-info {
+    h2 {
+        font-size: clamp(32px, 4vw, 36px);
+        margin-bottom: $spacing-md;
+    }
+    
+    > p {
+        color: $text-gray;
+        margin-bottom: $spacing-lg;
+        line-height: 1.8;
+    }
+}
+
+.location-details {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+}
+
+// ✅ CORREGIDO: selector genérico ">div" afectaba también al ícono (flex:1 lo estiraba). Ahora apunta solo al texto.
+.location-detail {
+    display: flex;
+    gap: $spacing-md;
+    align-items: center;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $border-radius-medium;
+    @include transition(all, $transition-normal);
+    
+    h3 {
+        margin-bottom: 8px;
+        color: $primary-yellow;
+        font-size: $font-size-large;
+    }
+    
+    p {
+        color: $text-gray;
+        font-size: $font-size-small;
+        margin: 0;
+    }
+    
+    .detail-text {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    &:hover {
+        background: rgba(45, 62, 80, 0.35);
+        
+        .detail-icon {
+            border-color: $primary-yellow;
+            transform: scale(1.06);
+        }
+    }
+}
+
+.detail-icon {
+    width: 54px;
+    height: 54px;
+    background: linear-gradient(135deg, $medium-blue 0%, $dark-bg 100%);
+    border: 2px solid rgba(253, 185, 19, 0.3);
+    border-radius: 50%;
+    @include flex-center;
+    flex-shrink: 0;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    @include transition(all, $transition-normal);
+    
+    i {
+        color: $primary-yellow;
+        font-size: 20px;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.location-map {
+    height: 500px;
+    border-radius: $border-radius-medium;
+    overflow: hidden;
+    box-shadow: $shadow-medium;
+    
+    iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+    
+    @include respond-to(md) {
+        height: 350px;
+    }
+}
+
+// Hours Section
+.hours-section {
+    @include section-padding;
+    background: $dark-blue;
+}
+
+.hours-content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-2xl;
+    align-items: center;
+    
+    @include respond-to(md) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.hours-image {
+    height: 500px;
+    background: linear-gradient(135deg, $medium-blue 0%, $light-blue 100%);
+    border-radius: $border-radius-medium;
+    position: relative;
+    overflow: hidden;  /* ✅ AGREGADO: para que la imagen no se salga */
+    
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+    }
+    
+    .emergency-badge {
+        position: relative;
+        z-index: 2;
+    }
+    
+    @include respond-to(md) {
+        height: 300px;
+    }
+}
+
+.emergency-badge {
+    position: absolute;
+    top: $spacing-lg;
+    left: $spacing-lg;
+    background: $primary-yellow;
+    color: $dark-bg;
+    padding: 12px 25px;
+    border-radius: $border-radius-pill;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-base;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.hours-content {
+    h2 {
+        font-size: clamp(32px, 4vw, 36px);
+        margin-bottom: $spacing-md;
+    }
+    
+    > p {
+        color: $text-gray;
+        margin-bottom: $spacing-lg;
+        line-height: 1.8;
+    }
+}
+
+.hours-list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+}
+
+.hours-item {
+    background: $medium-blue;
+    padding: $spacing-lg;
+    border-radius: $border-radius-medium;
+    border-left: 4px solid $primary-yellow;
+    @include transition(all, $transition-normal);
+    
+    &:hover {
+        background: $light-blue;
+        transform: translateX(5px);
+    }
+    
+    h3 {
+        font-size: $font-size-large;
+        margin-bottom: 8px;
+    }
+    
+    p {
+        margin-bottom: 5px;
+        
+        &:last-child {
+            margin-bottom: 0;
+            color: $text-gray;
+            font-size: $font-size-small;
+        }
+    }
+}
+
+.hours-time {
+    color: $primary-yellow;
+    font-size: 20px;
+    font-weight: $font-weight-bold;
+    margin-bottom: 5px;
+}
+
+// Connect Section
+.connect-section {
+    @include section-padding;
+    background: $dark-bg;
+    
+    h2 {
+        font-size: clamp(32px, 4vw, 36px);
+        text-align: center;
+        margin-bottom: $spacing-sm;
+    }
+    
+    > .container > p {
+        text-align: center;
+        color: $text-gray;
+        max-width: 700px;
+        margin: 0 auto $spacing-2xl;
+    }
+}
+
+.connect-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: $spacing-lg;
+    
+    @include respond-to(md) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.connect-card {
+    background: $medium-blue;
+    padding: $spacing-xl;
+    border-radius: $border-radius-medium;
+    text-align: center;
+    @include transition(all, $transition-slow);
+    border: 2px solid transparent;
+    
+    &.active,
+    &:hover {
+        background: $light-blue;
+        border-color: $primary-yellow;
+        transform: translateY(-10px);
+        box-shadow: $shadow-yellow;
+        
+        .connect-icon {
+            @include icon-hover;
+        }
+    }
+    
+    h3 {
+        font-size: 22px;
+        margin-bottom: $spacing-sm;
+    }
+    
+    > p {
+        color: $text-gray;
+        font-size: $font-size-small;
+        margin-bottom: $spacing-md;
+        line-height: 1.6;
+    }
+}
+
+.connect-icon {
+    font-size: 60px;
+    color: $primary-yellow;
+    margin-bottom: $spacing-md;
+    @include transition(all, $transition-slow);
+}
+
+.connect-highlight {
+    color: $primary-yellow;
+    font-size: $font-size-large;
+    font-weight: $font-weight-bold;
+    margin-bottom: 8px;
+    
+    a {
+        color: inherit;
+    }
+}
+
+.connect-detail {
+    color: $text-gray;
+    font-size: 13px;
+}
